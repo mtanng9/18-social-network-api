@@ -21,6 +21,8 @@ Clone repo locally, cd into root folder, use npm i, then use npm start.
 ## Usage
 A social network api for users to share their thoughts.
 
+[Untitled_ Apr 30, 2023 2_51 AM.webm](https://user-images.githubusercontent.com/118089627/235321724-346251c2-fe85-4fc9-98b4-ccc390c8555a.webm)
+
 
 ## Questions
 
