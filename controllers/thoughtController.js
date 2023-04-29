@@ -104,7 +104,7 @@ async deleteReaction(req, res) {
             return res.status(404).json({ message: 'No thought with that ID' });
         }
         
-        thought.reactions = thought.reactions.filter(function(e) {return e._id != req.params.reactionId});
+        thought.reactions = thought.reactions.filter(function(e) {return e.reactionId != req.params.reactionId});
         thought.save();
 
         res.json(thought);
