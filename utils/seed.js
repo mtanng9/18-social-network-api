@@ -1,4 +1,5 @@
 const connection = require('../config/connection');
+const { ObjectId } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 const { faker } = require('@faker-js/faker');
 
@@ -19,8 +20,10 @@ connection.once('open', async () => {
         const reactions = [];
         for (let i = 0; i < 5; i++) {
             reactions.push({
+                reactionId: new ObjectId(),
                 reactionBody: faker.lorem.lines(1),
-                username: faker.internet.userName(),    
+                username: faker.internet.userName(),
+                createdAt: Date.now(),    
             });
         }
 
@@ -28,6 +31,7 @@ connection.once('open', async () => {
             thoughtText: faker.lorem.lines(1),
             username: faker.internet.userName(),
             reactions: [...reactions],
+            createdAt: Date.now(),
         });
         
     }
@@ -46,7 +50,7 @@ connection.once('open', async () => {
             {
                 username: faker.internet.userName(),
                 email: faker.internet.email(),
-                thought: [...randomThough],
+                thoughts: [...randomThough],
         });
     }
 
@@ -66,7 +70,7 @@ connection.once('open', async () => {
             {
                 username: faker.internet.userName(),
                 email: faker.internet.email(),
-                thought: [...randomThough],
+                thoughts: [...randomThough],
                 friends: [...randomFriend],
         });
     }
