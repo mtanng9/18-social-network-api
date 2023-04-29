@@ -62,7 +62,7 @@ async deleteUser(req, res) {
         return res.status(404).json({ message: 'No such user exists' });
         }
 
-        res.json({ message: 'Student successfully deleted' });
+        res.json({ message: 'User successfully deleted' });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -74,10 +74,10 @@ async addFriend(req, res) {
         const user = await User.findOne({ _id: req.params.userId });
 
         if (!user) {
-            return res.status(404).json({ message: 'No user with that ID' })
+            return res.status(404).json({ message: 'No user with that ID' });
         }
         
-        user.friends.push(req.params.friendId)
+        user.friends.push(req.params.friendId);
         user.save();
 
         res.json(user);
@@ -91,10 +91,10 @@ async deleteFriend(req, res) {
         const user = await User.findOne({ _id: req.params.userId });
 
         if (!user) {
-            return res.status(404).json({ message: 'No user with that ID' })
+            return res.status(404).json({ message: 'No user with that ID' });
         }
         
-        user.friends = user.friends.filter(function(e) {return e != req.params.friendId})
+        user.friends = user.friends.filter(function(e) {return e != req.params.friendId});
         user.save();
 
         res.json(user);
